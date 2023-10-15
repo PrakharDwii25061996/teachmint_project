@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+
+{% block body-content %}
+<div style="margin-bottom: 200px; margin-top: 100px;">
+	<center>
+		<form method="POST" class="registration_page_layout"  
+			style="margin-left: 20%; margin-right: 20%; margin-top: 20px; background-color: white;"
+			enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ keys }}
+
+			<h2>Registration Form</h2><br>
+			{% for field in form %}
+			<div class="row form-group">
+				<div class = "col-md-4 col-bg-4 col-sm-4 col-lg-4">
+				    <label for="exampleInputUsername">{{ field.label_tag }}</label>
+				</div>
+				<div class = "col-md-8 col-bg-8  col-sm-8 col-lg-8">
+					{{ field }}
+				</div>
+				{{ field.errors }}
+			</div><br>
+			{% endfor %}
+			
+			<input type="submit" name="" value="Submit" id="reg_btn_id">
+		</form>
+	</center>
+</div>
+{% endblock body-content %}
+

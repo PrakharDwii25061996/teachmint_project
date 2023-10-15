@@ -1,0 +1,14 @@
+
+# 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
+media/
+
+# Ignoring migration files
+migrations/
+
+# Adding .env file
+.env
+
+__pycache__/
+
+.pyc
+.pyo

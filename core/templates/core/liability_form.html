@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+
+{% block body-content %}
+<div>
+	<center>
+		<form method="POST" style="margin-left:17%; margin-right:20%; margin-top: 150px;
+		 background-color: white;">
+			{% csrf_token %}
+			<h2>Liability Form</h2><br>
+			{{ key }}
+			{% for field in form %}
+			<div class="row form-group">
+				<div class = "col-md-4 col-bg-4 col-sm-4 col-lg-4">
+				    <label for="exampleInputUsername">{{ field.label_tag }}</label>
+				</div>
+				<div class = "col-md-8 col-bg-8  col-sm-8 col-lg-8">
+					{{ field }}
+				</div>
+				{{ form.errors }}
+			</div><br>
+			{% endfor %}
+			
+			<input type="submit" name="" value="Submit" id="id_log_btn"><br><br>
+		</form><br>
+	</center>
+</div>
+{% endblock body-content %}
