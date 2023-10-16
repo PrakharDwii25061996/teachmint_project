@@ -56,7 +56,9 @@ class OweOver(models.Model):
     user_owes = models.ForeignKey(
         CustomUser, on_delete=models.CASCADE, related_name='owe'
     )
-    percent_value = models.DecimalField(decimal_places=2, max_digits=8, null=True)
+    percent_value = models.DecimalField(
+        decimal_places=2, max_digits=8, null=True
+    )
     amount = models.DecimalField(
         decimal_places=2, max_digits=8, null=True, default=0
     )

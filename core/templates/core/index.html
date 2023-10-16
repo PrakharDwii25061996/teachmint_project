@@ -1,12 +1,9 @@
 {% extends 'core/base.html' %}
 
-
 {% block body-content %}
 <div>
-
+	{% include 'core/partials/header.html' %}
 	{% if request.user.is_authenticated %}
-		<a href="{% url 'user_logout' %}">Logout</a><br >
-		<a href="{% url 'liability_form' %}">Liability Form</a> <br><br>
 		<center>
 			{% if request.user.liability %}
 				{% for owes in request.user.liability.owe_over.all %}
@@ -14,9 +11,6 @@
 				{% endfor %}
 			{% endif %}
 		</center>
-	{% else %}
-		<a href="{% url 'registration' %}">Registration</a>
-		<a href="{% url 'user_login' %}">Login</a>
 	{% endif %}
 </div>
 {% endblock body-content %}
